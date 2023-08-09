@@ -1,0 +1,37 @@
+AMD64 Calling Conventions for Linux / Mac OSX
+CSE 378 – Fall 2010, Section – Week 2
+CALLING CONVENTIONS
+• Calling conventions are a scheme for how functions receive
+parameters from their caller and how they return a result.
+• Adhering to calling conventions ensures that your functions won't step
+on each other's data when using the same registers.
+• Calling conventions allow us to implement recursive functions and call
+functions which we cannot see the implementations of.
+• Certain registers need to have their contents preserved by the caller if
+the caller wants to ensure that the values in those registers are saved
+across the function call.
+• Other registers need to have their contents saved by the callee (the
+function being called) before using them.
+• Here's a table summarizing what each register is used for and who is
+responsible for saving its contents:
+Register Use Saved By
+%rax Returning a value from a function Caller
+%rbx Optionally used as a base pointer Callee
+%rcx Used to pass the 4th argument to a function Caller
+%rdx Used to pass the 3rd argument to a function & optionally
+to return a second value
+Caller
+%rsp Stack pointer
+%rbp Frame pointer Callee
+%rsi Used to pass the 2nd argument to a function Caller
+%rdi Used to pass the 1st argument to a function Caller
+%r8 Used to pass 5th argument to a function Caller
+%r9 Used to pass 6th argument to a function Caller
+%r10 Temporary register also used to pass a function's static
+chain pointer
+Caller
+%r11 Temporary register Caller
+%r12 Temporary register Callee
+%r13 Temporary register Callee
+%r14 Temporary register Callee
+%r15 Temporary register Callee
